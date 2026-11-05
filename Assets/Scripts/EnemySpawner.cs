@@ -33,8 +33,11 @@ public class EnemySpawner : MonoBehaviour
         + right * 1f
         + Vector3.down * 0.3f;
         // E. CREATE THE ENEMIES
-        Instantiate(redEnemy, leftPosition, Quaternion.identity);
-        Instantiate(greenEnemy, centerPosition, Quaternion.identity);
-        Instantiate(blueEnemy, rightPosition, Quaternion.identity);
+        GameObject red = Instantiate(redEnemy, leftPosition, Quaternion.identity);
+        red.GetComponent<EnemyMovement>().playerHead = playerHead;
+        GameObject green = Instantiate(greenEnemy, centerPosition, Quaternion.identity);
+        green.GetComponent<EnemyMovement>().playerHead = playerHead;
+        GameObject blue = Instantiate(blueEnemy, rightPosition, Quaternion.identity);
+        blue.GetComponent<EnemyMovement>().playerHead = playerHead;
     }
 }
